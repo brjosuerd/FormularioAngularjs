@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="app.js"></script>
+  </head>
+  <body ng-app="formApp">
+    <div class="container">
+      <h2>Formulario</h2>
+
+      <div ng-controller="MainCtrl">
+        <form name="userForm">
+
+          <div class="form-group">
+            Nombre: <input type="text" name="name" ng-model="user.name" placeholder="Nombre" ng-pattern="nameFormat" required>
+            <span class="error" ng-show="userForm.name.$error.required && !userForm.$pristine">
+              Nombre Requiredo!
+            </span>
+            <span class="error" ng-show="userForm.name.$error.pattern">
+              Nombre no valido!
+            </span>
+          </div>
+
+          <div class="form-group">
+            Email: <input type="email" name="email" ng-model="user.email" placeholder="email@example.com" ng-pattern="emailFormat" required>
+            <span class="error" ng-show="userForm.email.$error.required && !userForm.$pristine">
+              Email Requiredo!
+            </span>
+            <span class="error" ng-show="userForm.email.$error.pattern">
+              Email no valido!
+            </span>
+          </div>
+
+          <div class="form-group">
+            RFC: <input type="text" name="rfc" ng-model="user.rfc" placeholder="RFC" ng-pattern="rfcFormat" required>
+            <span class="error" ng-show="userForm.rfc.$error.required && !userForm.$pristine">
+              RFC Requiredo!
+            </span>
+            <span class="error" ng-show="userForm.rfc.$error.pattern">
+              RFC no valido!
+            </span>
+          </div>
+
+          <input type="submit" value="Enviar">
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
